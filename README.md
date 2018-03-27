@@ -36,10 +36,17 @@ Import myRetail.postman_collection.json into Postman.
 
 ### Calling the api from Commandline
 
-- cUrl
+#### cUrl
 
-- PowerShell
+``` shell
+curl http://localhost:8080/products
+```
 
+#### PowerShell
+
+``` powershell
+Invoke-Restmethod http://localhost:8080/products
+```
 
 ## Additional Thoughts
 
