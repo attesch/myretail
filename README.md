@@ -21,7 +21,7 @@ mongoimport --db Products --collection product --drop --jsonArray --file ./impor
 ### starting the application and removing the DB when you are done
 
 ```
-./gradlew bootrun
+gradle bootrun
 
 docker stop mongo_myretail
 ```
