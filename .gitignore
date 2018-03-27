@@ -1,0 +1,12 @@
+.project
+.idea/*
+.gradle/*
+gradle/*
+.classpath
+.git
+.settings
+myRetail.iml
+
+out/*
+build/*
+bin/*

@@ -1,0 +1,105 @@
+{
+	"info": {
+		"name": "myRetail",
+		"_postman_id": "e0eeb571-3771-3b37-6c9b-d03f47d1d815",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ping root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": ""
+				},
+				"description": "get a product from the Database"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product by {id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": ""
+				},
+				"description": "get a product from the Database"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product by {id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": ""
+				},
+				"description": "update a product in the Database"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": ""
+				},
+				"description": "update a product in the Database"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": ""
+				},
+				"description": "update a product in the Database"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f44d209e-ea70-45a2-b392-e0acb68bd2b4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f7a18a3a-0488-4c8a-a359-688e991b7249",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "cf702bdc-ee69-4937-9a9f-dec8fea20bc1",
+			"key": "localhost",
+			"value": "http://localhost:8090",
+			"type": "text"
+		}
+	]
+}
