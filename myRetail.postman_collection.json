@@ -8,6 +8,26 @@
 	"item": [
 		{
 			"name": "Status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b382471e-5ee9-4aa8-a442-f6dab21fd3c8",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body('{\"status\":\"online\"}');",
+							"});"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -26,6 +46,20 @@
 		},
 		{
 			"name": "Get Product by {id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "25b1174a-bffa-43f0-9c26-e857889b76b7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -53,6 +87,20 @@
 		},
 		{
 			"name": "Update Product by {id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "63901a52-6847-43ab-8f77-20ad42b86e82",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -112,6 +160,20 @@
 		},
 		{
 			"name": "Add Product with Null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3efc2e7-70e0-4b52-a758-56a5ffe8ee0f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -122,7 +184,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"id\": \"53334321\",\n  \"price\": null,\n  \"name\": null\n}"
+					"raw": "{\n  \"id\": null,\n  \"price\": null,\n  \"name\": \"null\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/products",
@@ -141,6 +203,20 @@
 		},
 		{
 			"name": "Get All Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e7067a48-a40d-4421-97dd-adbe01c50da0",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -185,7 +261,7 @@
 	],
 	"variable": [
 		{
-			"id": "5e7ad4d4-2fce-4969-8377-c4e3bcc3a62f",
+			"id": "02d0dcaf-3b79-4608-8811-d760c5adbe47",
 			"key": "localhost",
 			"value": "http://localhost:8090",
 			"type": "text"
