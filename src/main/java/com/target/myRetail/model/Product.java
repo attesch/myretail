@@ -2,11 +2,17 @@ package com.target.myRetail.model;
 
 import org.springframework.data.annotation.Id;
 
+import javax.validation.constraints.NotNull;
+
 public class Product {
 
     @Id
     private String id;
+
+    @NotNull
     private String name;
+
+    @NotNull
     private Double price;
 
     public String getId() {

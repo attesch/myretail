@@ -7,13 +7,18 @@
 	},
 	"item": [
 		{
-			"name": "Ping root",
+			"name": "Status",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080"
 				},
 				"description": "get a product from the Database"
 			},
@@ -23,10 +28,24 @@
 			"name": "Get Product by {id}",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
 				"body": {},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/products/53334446",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"53334446"
+					]
 				},
 				"description": "get a product from the Database"
 			},
@@ -35,11 +54,28 @@
 		{
 			"name": "Update Product by {id}",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"53334446\",\n  \"price\": 24.99,\n  \"name\": \"Marvel's Black Panther Target Exclusive (Blu-ray + Digital)\"\n}"
+				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/products/53211533",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"53211533"
+					]
 				},
 				"description": "update a product in the Database"
 			},
@@ -48,13 +84,58 @@
 		{
 			"name": "Add Product",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"53334449\",\n  \"price\": 25.98,\n  \"name\": \"The Pink Panther Target Exclusive (Blu-ray + Digital)\"\n}"
+				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
 				},
 				"description": "update a product in the Database"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product with Null",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"53334321\",\n  \"price\": null,\n  \"name\": null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				},
+				"description": "update a product in the Database and test the null object validation to ensure that a null value cannot be added"
 			},
 			"response": []
 		},
@@ -65,7 +146,15 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
 				},
 				"description": "update a product in the Database"
 			},
@@ -96,7 +185,7 @@
 	],
 	"variable": [
 		{
-			"id": "cf702bdc-ee69-4937-9a9f-dec8fea20bc1",
+			"id": "5e7ad4d4-2fce-4969-8377-c4e3bcc3a62f",
 			"key": "localhost",
 			"value": "http://localhost:8090",
 			"type": "text"

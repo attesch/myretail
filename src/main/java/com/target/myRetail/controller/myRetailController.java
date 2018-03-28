@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -40,13 +41,13 @@ public class myRetailController {
 
     @PutMapping("products/{id}")
     @ResponseBody
-    public void updateProduct (@RequestBody Product product) {
+    public void updateProduct (@Valid @RequestBody Product product) {
         productRepository.save(product);
     }
 
     @PostMapping(value = "/products", consumes = "application/json")
     @ResponseBody
-    public void addProduct (@RequestBody Product product) {
+    public void addProduct (@Valid @RequestBody Product product) {
         productRepository.save(product);
     }
 
