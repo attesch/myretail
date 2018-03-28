@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 public class Product {
 
     @Id
+    @NotNull
     private String id;
 
     @NotNull
