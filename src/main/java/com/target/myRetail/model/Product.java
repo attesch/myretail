@@ -3,18 +3,21 @@ package com.target.myRetail.model;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 public class Product {
 
     @Id
     @NotNull
-    private String id;
+    // Needs a validation to ensure this string matches product id rules.
+    public String id;
 
     @NotNull
     private String name;
 
     @NotNull
-    private Double price;
+    @Positive
+    public Double price;
 
     public String getId() {
         return id;

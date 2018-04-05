@@ -28,5 +28,8 @@ dependencies {
 	compileOnly ('org.projectlombok:lombok:1.16.16')
 	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.json:json:20171018')
+    compile('com.google.code.gson:gson:2.8.2')
+	compile('com.fasterxml.jackson.core:jackson-databind:2.9.4')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

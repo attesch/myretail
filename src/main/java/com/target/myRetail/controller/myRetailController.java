@@ -1,18 +1,15 @@
 package com.target.myRetail.controller;
 
 
+import com.target.myRetail.Service.ProductService;
 import com.target.myRetail.repository.ProductRepository;
 import com.target.myRetail.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
 
 @RestController
 
@@ -20,6 +17,9 @@ import java.util.Set;
 public class myRetailController {
     @Autowired
     ProductRepository productRepository;
+
+    @Autowired
+    ProductService productService;
 
     @GetMapping
     @ResponseBody
@@ -30,14 +30,35 @@ public class myRetailController {
     @GetMapping("/products")
     @ResponseBody
     public List<Product> getAll () {
-       return productRepository.findAll();
+        return productRepository.findAll();
     }
 
     @GetMapping(value = "/products/{id}", produces = "application/json")
     @ResponseBody
-    public Product getProduct (@PathVariable("id")String id)  {
-       return productRepository.findProductById(id);
+    public Product getProduct (@PathVariable("id")String id) throws IOException {
+
+
+        Product productMyRetail = productRepository.findProductById(id);
+        Product productRedSky = productService.getProduct(id);
+
+        if (productMyRetail != null && productRedSky != null) {
+            // Combine the results from the RedSky query.
+            // There should be a freshness check on the cache data
+            // I don't there that every call should hit redsky unless it needs to as this defeats the purpose of the cache.
+            System.out.println("\n-------myRetail--------");
+            productMyRetail.setId(productRedSky.getId());
+            productMyRetail.setPrice(productRedSky.getPrice());
+            productMyRetail.setName(productRedSky.getName());
+            //productRepository.save(productMyRetail2);  // save the product to the cache.
+            return productMyRetail;
+        }
+        else {
+            System.out.println("\n-------redSky--------");
+            productRepository.save(productRedSky);  // save the product to the cache.
+            return productRedSky;
+        }
     }
+
 
     @PutMapping("products/{id}")
     @ResponseBody

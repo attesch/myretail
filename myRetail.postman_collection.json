@@ -1,8 +1,7 @@
 {
 	"info": {
+		"_postman_id": "0345832d-21fe-484a-976b-c7af5a602810",
 		"name": "myRetail",
-		"_postman_id": "e0eeb571-3771-3b37-6c9b-d03f47d1d815",
-		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -31,7 +30,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8080",
 					"protocol": "http",
@@ -68,7 +70,10 @@
 						"value": "application/json"
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8080/products/53334446",
 					"protocol": "http",
@@ -220,7 +225,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8080/products",
 					"protocol": "http",
@@ -230,6 +238,45 @@
 					"port": "8080",
 					"path": [
 						"products"
+					]
+				},
+				"description": "update a product in the Database"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a not cached item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e7067a48-a40d-4421-97dd-adbe01c50da0",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/52146578",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"52146578"
 					]
 				},
 				"description": "update a product in the Database"
@@ -261,10 +308,11 @@
 	],
 	"variable": [
 		{
-			"id": "02d0dcaf-3b79-4608-8811-d760c5adbe47",
+			"id": "c8bf1990-dd91-4984-8bb6-5f1a8f038f85",
 			"key": "localhost",
-			"value": "http://localhost:8090",
-			"type": "text"
+			"value": "http://localhost:8080",
+			"type": "string",
+			"description": ""
 		}
 	]
 }

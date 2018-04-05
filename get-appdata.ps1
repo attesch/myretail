@@ -3,7 +3,7 @@ $productIDs = (13860428,52949796,52946420,16696652,53211599,53334446)
 
 foreach ($productID in $productIDs) {
     #Write-Host "Looking up Product $productID"
-    $redskyURI = 'http://redsky.target.com/v2/pdp/tcin/'+$productID+'?excludes=taxonomy,price,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics'
+    $redskyURI = 'http://redsky.target.com/v2/pdp/tcin/'+$productID+'?excludes=esp,bulk_ship,deep_red_labels,question_answer_statistics,rating_and_review_statistics,rating_and_review_reviews,available_to_promise_network,promotion'
     
     $itemInfo = new-object -TypeName psobject -Property @{
         "id"="";
