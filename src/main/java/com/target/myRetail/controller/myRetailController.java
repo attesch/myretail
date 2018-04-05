@@ -39,13 +39,14 @@ public class myRetailController {
 
 
         Product productMyRetail = productRepository.findProductById(id);
+        // if there is not an entry in the database this will return null object.  :)
         Product productRedSky = productService.getProduct(id);
 
         if (productMyRetail != null && productRedSky != null) {
             // Combine the results from the RedSky query.
             // There should be a freshness check on the cache data
             // I don't there that every call should hit redsky unless it needs to as this defeats the purpose of the cache.
-            System.out.println("\n-------myRetail--------");
+            //System.out.println("\n-------Look up in Database--------");
             productMyRetail.setId(productRedSky.getId());
             productMyRetail.setPrice(productRedSky.getPrice());
             productMyRetail.setName(productRedSky.getName());
@@ -53,8 +54,10 @@ public class myRetailController {
             return productMyRetail;
         }
         else {
-            System.out.println("\n-------redSky--------");
+            // If the database does not return a product
+            //System.out.println("\n-------Look up in redSky--------");
             productRepository.save(productRedSky);  // save the product to the cache.
+            // Save the item to the cache
             return productRedSky;
         }
     }

@@ -36,10 +36,8 @@ public class ProductService {
         con.setRequestMethod("GET");
         //add request header
         con.setRequestProperty("User-Agent", "Mozilla/5.0");
-        System.out.println("\n-------RESPONSE Code --------");
-        int responseCode = con.getResponseCode();
-        //System.out.println("\nResponse Code : " + responseCode);
-        //System.out.println("\n-----------------------------");
+                int responseCode = con.getResponseCode();
+        System.out.println("\n-------RESPONSE Code :: "+ responseCode + " -------- ");
         if (responseCode == 200 || responseCode == 201) {
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
@@ -54,8 +52,10 @@ public class ProductService {
             JsonObject jsonResponse = new JsonParser().parse(response.toString()).getAsJsonObject();
             String strPrice = jsonResponse.getAsJsonObject("product").getAsJsonObject("price").getAsJsonObject("listPrice").get("price").toString();
             Double price = Double.parseDouble(strPrice);
+            System.out.println("\n------- Price :: " + price + " --------");
             String title = jsonResponse.getAsJsonObject("product").getAsJsonObject("item").getAsJsonObject("product_description").get("title").toString();
-
+            title = title.replace("\"","");
+            System.out.println("\n------- Title :: " + title + " --------");
             myProduct.setId(id);
             myProduct.setPrice(price);
             myProduct.setName(title);
